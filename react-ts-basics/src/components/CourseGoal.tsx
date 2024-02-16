@@ -3,16 +3,18 @@ import { type ReactNode } from "react"
 interface CourseGoalProps { 
     title: string, 
     children: ReactNode
+    onDelete: (id:number) => void
+    id: number
 }
 
-export default function CourseGoal({ title, children }: CourseGoalProps) {
+export default function CourseGoal({ title, children, onDelete, id }: CourseGoalProps) {
     return (
         <article>
             <div>
                 <h2>{title}</h2>
                 {children}
             </div>
-            <button>DELETE</button>
+            <button onClick={() => onDelete(id)}>DELETE</button>
         </article>
     )
 }
